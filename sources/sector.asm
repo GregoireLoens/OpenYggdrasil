@@ -2,7 +2,7 @@ BITS 16
 ORG 0x0
 
 init_seg:
-	mov ax, 0x07C0 		;amorçage du bios
+	mov ax, 0x07BF 		;amorçage du bios
 	mov ds, ax		;ds point to the current data segment
 	mov es, ax		;es extra segment determined by the programmer
 	mov ax, 0x8000		;on set le début de la stack
