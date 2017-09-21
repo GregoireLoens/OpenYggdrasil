@@ -15,7 +15,7 @@ init_seg:
 _end:
 	jmp _end
 
-welcome:	db "Welcome to OpenYggdrasil version 1.0", 13, 10, "The most badass kernel ever made !", 13, 10, 0
+welcome:	db "Welcome to OpenYggdrasil version 0.1", 13, 10, "The most badass kernel ever made !", 13, 10, 0
 
 write:
 	push ax
