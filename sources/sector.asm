@@ -3,10 +3,10 @@ ORG 0x0
 
 init_seg:
 	mov ax, 0x07C0 		;amorçage du bios
-	mov ds, ax
-	mov es, ax
+	mov ds, ax		;ds point to the current data segment
+	mov es, ax		;es extra segment determined by the programmer
 	mov ax, 0x8000		;on set le début de la stack
-	mov ss, ax
+	mov ss, ax		;ss simply the stack pointer
 	mov sp, 0xf000		;on set la fin de la stack
 
 	mov si, welcome
@@ -36,5 +36,5 @@ write:
 	ret
 
 
-	times 510-($-$$) db 144
-    	dw 0xAA55
+	times 510-($-$$) db 144	;put the NOP (0x90) op code until the wanted magic number
+    	dw 0xAA55		;we put the boot magic nbr 0x55 at byte 510 and 0xAA at byte 511
