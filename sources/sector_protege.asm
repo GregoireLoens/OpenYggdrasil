@@ -77,7 +77,7 @@ next:
     	jmp dword 0x8:0x1000
 
 bootdrv:  db 0
-msgDebut: db "Chargement du kernel", 13, 10, 0
+msgDebut: db "loading kernel", 13, 10, 0
 
 ;;init de la gdt
 gdt:
