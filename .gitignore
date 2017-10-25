@@ -183,5 +183,6 @@ CTestTestfile.cmake
 *test*
 
 bootsect
-kernel
 floppy*
+
+CMakeLists.txt
