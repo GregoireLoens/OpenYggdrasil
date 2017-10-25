@@ -5,7 +5,7 @@
 
 NAME		=	OpenYggdrasil
 
-BOOTNAME	=	boostsect
+BOOTNAME	=	bootsect
 
 GCC		=	gcc
 
@@ -13,23 +13,26 @@ NASM		=	nasm
 
 LD		=	ld
 
-KERNELSRC	=	kernel.c
+CFLAGS  +=  -Iincludes/ -m32
+
+KERNELSRC	=	$(SRCDIR)kernel/kernel.c \
+                $(SRCDIR)kernel/screen.c
 
 BOOTSRC		=	$(SRCDIR)sector_protege.asm
 
 SRCDIR		=	sources/
 
-KERNELOBJ	=	$(OBJ:.c=.o)
+KERNELOBJ	=	$(KERNELSRC:.c=.o)
 
 
 
 all:	kernel boot
 
-kernel:
-	$(LD) --oformat binary -Ttext 1000 $(KERNELOBJ) -o $(NAME)  
+kernel: $(KERNELOBJ)
+	$(LD) -m elf_i386 --oformat binary -Ttext 1000 $(KERNELOBJ) -o $(NAME)
 
 boot:
-	$(NASM) -i $(SRCDIR) -f bin -o $(BOOTNAME) $(BOOSTSRC)
+	$(NASM) -i $(SRCDIR) -f bin -o $(BOOTNAME) sources/sector_protege.asm
 
 clean:
 	rm -rf $(KERNELOBJ)
