@@ -13,7 +13,7 @@ NASM		=	nasm
 
 LD		=	ld
 
-CFLAGS  +=  -Iincludes/ -m32
+CFLAGS  +=  -Iincludes/ -m32 -fno-pic
 
 KERNELSRC	=	$(SRCDIR)kernel/kernel.c \
                 $(SRCDIR)kernel/screen.c
