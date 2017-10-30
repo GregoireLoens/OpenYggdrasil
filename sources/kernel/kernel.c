@@ -9,10 +9,10 @@
 
     void _start(void)
     {
-        curs_y = 18;
+	clear();
+        curs_y = 0;
         print("Alcoolemie aigue en contexte festif\n");
         print("Bonjour je suis OpenYggdrasil\n");
-        scrollup(2);
 
         while (1);
     }

@@ -186,3 +186,5 @@ bootsect
 floppy*
 
 CMakeLists.txt
+
+OpenYggdrasil

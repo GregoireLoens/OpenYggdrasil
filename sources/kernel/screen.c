@@ -10,7 +10,6 @@ char curs_x = 0;
 char curs_y = 17;
 char curs_attr = DEFAULT_CURSOR_ATTRIBUTE;
 
-
 void scrollup(unsigned int n)
 {
     uchar* video;
