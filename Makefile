@@ -16,7 +16,9 @@ LD		=	ld
 CFLAGS  +=  -Iincludes/ -m32 -fno-pic
 
 KERNELSRC	=	$(SRCDIR)kernel/kernel.c \
-                $(SRCDIR)kernel/screen.c
+                $(SRCDIR)kernel/screen.c \
+                $(SRCDIR)kernel/gdt_init.c \
+                $(SRCDIR)lib/memcpy.c
 
 BOOTSRC		=	$(SRCDIR)sector_protege.asm
 
