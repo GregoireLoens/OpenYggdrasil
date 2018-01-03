@@ -28,7 +28,11 @@ KERNELOBJ	=	$(KERNELSRC:.c=.o)
 
 
 
-all:	kernel boot
+all:	floppyA
+
+floppyA: kernel boot
+	cat bootsect OpenYggdrasil /dev/zero | dd of=floppyA bs=512 count=2880
+	qemu-system-i386 "floppyA"
 
 kernel: $(KERNELOBJ)
 	$(LD) -m elf_i386 --oformat binary -Ttext 1000 $(KERNELOBJ) -o $(NAME)
@@ -40,4 +44,4 @@ clean:
 	rm -rf $(KERNELOBJ)
 
 fclean: clean
-	rm -rf $(BOOTNAME) $(NAME)
+	rm -rf $(BOOTNAME) $(NAME) floppyA
